@@ -11,7 +11,7 @@ jobs:
           name: Show current branch
           command: echo ${CURRENT_BRANCH}
       - restore_cache:
-          key:
+          keys:
             - app-{{ checksum "package.json" }}
             - app-
       - run:
@@ -21,7 +21,7 @@ jobs:
           paths: 
             - node_modules
           key: app-{{ checksum "package.json" }}
-
+            
   deploy-to-aws-s3:
     docker:
       - image: circleci/node:12.16.2
