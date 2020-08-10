@@ -104,7 +104,7 @@ workflows:
       - deploy-to-aws-s3:
           requires:
             - build
-          filteres:
+          filters:
             branches:
               only:
                 - develop
@@ -113,7 +113,7 @@ workflows:
       - deploy-to-aws-cloudfront:
           requires:
             - deploy-to-aws-s3 
-          filteres:
+          filters:
             branches:
               only:
                 - develop
