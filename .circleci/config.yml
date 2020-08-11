@@ -70,7 +70,9 @@ jobs:
       - *restore-cache
       - run:
           name: Run prettier check
-          command: npm run prettier:check 
+          command: |
+            npm run prettier:write
+            npm run prettier:check 
 
   deploy-to-aws-s3:
     executor: app-executor
